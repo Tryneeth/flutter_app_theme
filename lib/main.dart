@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_theme/theme/theme.dart';
+import 'package:flutter_app_theme/theme/theme_extensions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'App Theme Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -41,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: context.primaryColor,
         title: Text(widget.title),
       ),
       body: Center(
