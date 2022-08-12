@@ -1,4 +1,6 @@
-# flutter_app_theme
+# Flutter App Theme Setup
+
+## flutter_app_theme
 
 An example Flutter project for theme setup.
 
