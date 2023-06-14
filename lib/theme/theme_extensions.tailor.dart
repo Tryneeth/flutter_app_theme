@@ -1,11 +1,11 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, unused_element
+// ignore_for_file: type=lint, unused_element, unnecessary_cast
 
 part of 'theme_extensions.dart';
 
 // **************************************************************************
-// ThemeTailorGenerator
+// TailorAnnotationsGenerator
 // **************************************************************************
 
 class AppColors extends ThemeExtension<AppColors> {
@@ -17,17 +17,17 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color primaryColor;
   final Color secondaryColor;
 
-  static final AppColors light = AppColors(
-    primaryColor: _$AppColors.primaryColor[0],
-    secondaryColor: _$AppColors.secondaryColor[0],
+  static const AppColors light = AppColors(
+    primaryColor: Colors.blue,
+    secondaryColor: Colors.red,
   );
 
-  static final AppColors dark = AppColors(
-    primaryColor: _$AppColors.primaryColor[1],
-    secondaryColor: _$AppColors.secondaryColor[1],
+  static const AppColors dark = AppColors(
+    primaryColor: Colors.deepPurple,
+    secondaryColor: Colors.orange,
   );
 
-  static final themes = [
+  static const themes = [
     light,
     dark,
   ];
@@ -44,8 +44,8 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 
   @override
-  AppColors lerp(ThemeExtension<AppColors>? other, double t) {
-    if (other is! AppColors) return this;
+  AppColors lerp(covariant ThemeExtension<AppColors>? other, double t) {
+    if (other is! AppColors) return this as AppColors;
     return AppColors(
       primaryColor: Color.lerp(primaryColor, other.primaryColor, t)!,
       secondaryColor: Color.lerp(secondaryColor, other.secondaryColor, t)!,
@@ -66,14 +66,15 @@ class AppColors extends ThemeExtension<AppColors> {
   @override
   int get hashCode {
     return Object.hash(
-        runtimeType,
-        const DeepCollectionEquality().hash(primaryColor),
-        const DeepCollectionEquality().hash(secondaryColor));
+      runtimeType.hashCode,
+      const DeepCollectionEquality().hash(primaryColor),
+      const DeepCollectionEquality().hash(secondaryColor),
+    );
   }
 }
 
 extension AppColorsBuildContextProps on BuildContext {
-  AppColors get _appColors => Theme.of(this).extension<AppColors>()!;
-  Color get primaryColor => _appColors.primaryColor;
-  Color get secondaryColor => _appColors.secondaryColor;
+  AppColors get appColors => Theme.of(this).extension<AppColors>()!;
+  Color get primaryColor => appColors.primaryColor;
+  Color get secondaryColor => appColors.secondaryColor;
 }
